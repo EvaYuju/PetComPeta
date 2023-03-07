@@ -7,7 +7,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.ddi.petpetpet.RegistroAnimalesActivity
-import com.ddi.petpetpet.modelos.Animal
+import com.ddi.petpetpet.db.modelos.Animal
 
 var BD="baseDatosPetpetpet";
 class DatabaseHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :

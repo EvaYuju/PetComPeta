@@ -7,11 +7,14 @@ import android.widget.Toast
 import com.ddi.petpetpet.databinding.ActivityRegistroAnimalBinding
 import com.ddi.petpetpet.db.DatabaseHelper
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class RegistroAnimalesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegistroAnimalBinding
     private lateinit var dbHelper: DatabaseHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Vincula a la vista secundaria este código
@@ -21,7 +24,8 @@ class RegistroAnimalesActivity : AppCompatActivity() {
         // Crear la base de datos
         dbHelper = DatabaseHelper(this, null)
 
-        // Recupera el nombre de usuario del Intent que inició esta actividad
+
+        // Recupera del Intent el nombre de usuario que inició esta actividad
         val usuario = intent.getStringExtra("Usuario")
         // Actualiza el TextView con el nombre de usuario
         binding.usuarioLogeado.text = "Usuario: $usuario"
@@ -30,12 +34,6 @@ class RegistroAnimalesActivity : AppCompatActivity() {
         // Botón insertar
         binding.btnAlta.setOnClickListener {
             // Limpiar los campos
-            binding.ptCodigo.setText("")
-            binding.ptNombre.setText("")
-            binding.ptRaza.setText("")
-            binding.ptSexo.setText("")
-            binding.ptFecNac.setText("")
-            binding.ptDNI.setText("")
             // Código para guardar el registro
             val codigo = binding.ptCodigo.text.toString()
             val nombre = binding.ptNombre.text.toString()
@@ -43,7 +41,7 @@ class RegistroAnimalesActivity : AppCompatActivity() {
             val sexo = binding.ptSexo.text.toString()
             val fecnac = binding.ptFecNac.text.toString()
             val dniPropietario = binding.ptDNI.text.toString()
-            val imagen =
+            //val imagen =
 
                 // Verificar si todos los campos están llenos
                 if (codigo.isNotEmpty() && nombre.isNotEmpty() && raza.isNotEmpty() && sexo.isNotEmpty() && fecnac.isNotEmpty() && dniPropietario.isNotEmpty()) {
@@ -78,6 +76,12 @@ class RegistroAnimalesActivity : AppCompatActivity() {
                         Snackbar.LENGTH_SHORT
                     ).show()
                 }
+            binding.ptCodigo.setText("")
+            binding.ptNombre.setText("")
+            binding.ptRaza.setText("")
+            binding.ptSexo.setText("")
+            binding.ptFecNac.setText("")
+            binding.ptDNI.setText("")
         }
 
         // Botón actualizar

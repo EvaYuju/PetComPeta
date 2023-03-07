@@ -4,7 +4,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.ddi.petpetpet.databinding.ItemAnimalBinding
-import com.ddi.petpetpet.modelos.Animal
+import com.ddi.petpetpet.db.modelos.Animal
 
 class AnimalViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val binding = ItemAnimalBinding.bind(view)

@@ -10,6 +10,8 @@ import com.ddi.petpetpet.databinding.ActivityMainBinding
 import com.ddi.petpetpet.db.DatabaseHelper
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+
 
 class MainActivity : AppCompatActivity() {
     companion object {

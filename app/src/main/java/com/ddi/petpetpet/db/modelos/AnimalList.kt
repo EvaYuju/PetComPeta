@@ -1,4 +1,4 @@
-package com.ddi.petpetpet.modelos
+package com.ddi.petpetpet.db.modelos
 
 import android.database.Cursor
 import com.ddi.petpetpet.db.DatabaseHelper

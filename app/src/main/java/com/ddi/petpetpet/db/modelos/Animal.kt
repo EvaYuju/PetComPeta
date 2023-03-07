@@ -1,4 +1,4 @@
-package com.ddi.petpetpet.modelos
+package com.ddi.petpetpet.db.modelos
 
 
 data class Animal(

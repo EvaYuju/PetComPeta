@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ddi.petpetpet.R
-import com.ddi.petpetpet.modelos.Animal
+import com.ddi.petpetpet.db.modelos.Animal
 
 class AnimalAdapter(private val AnimalList: List<Animal>) : RecyclerView.Adapter<AnimalViewHolder>  (){
     // Encargado de generar ViewHolders a medida que vayan haciendo falta

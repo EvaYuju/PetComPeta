@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ddi.petpetpet.adapter.AnimalAdapter
 import com.ddi.petpetpet.databinding.ActivityReciclerViewBinding
 import com.ddi.petpetpet.db.DatabaseHelper
-import com.ddi.petpetpet.modelos.AnimalList
+import com.ddi.petpetpet.db.modelos.AnimalList
 
 class ReciclerViewActivity : AppCompatActivity() {
 
