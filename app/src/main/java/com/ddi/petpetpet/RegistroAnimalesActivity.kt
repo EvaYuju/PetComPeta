@@ -78,6 +78,8 @@ class RegistroAnimalesActivity : AppCompatActivity() {
                         "El código ya existe en la base de datos",
                         Snackbar.LENGTH_SHORT
                     ).show()*/
+
+                limpiar()
                 }
             else {
                 // Aquí es donde se llama a Snackbar en lugar de Toast
@@ -87,7 +89,6 @@ class RegistroAnimalesActivity : AppCompatActivity() {
                     Snackbar.LENGTH_SHORT
                 ).show()
             }
-            limpiar()
         }
 
 
