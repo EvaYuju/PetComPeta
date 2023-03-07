@@ -3,6 +3,8 @@
     <string name="bienvenidos">Bienvenidos a PetPetPet</string>
     <string name="tit_usuario">Usuario</string>
     <string name="btn_login">Login</string>
+
+    <string name="btn_registro">Registro</string>
     <string name="recuerdame">Recuérdame</string>
     <string name="tit_registro">Registro de Animales de Compañía</string>
     <string name="tit_cod">Cod. Ident:</string>
@@ -24,9 +26,13 @@
     <string name="btn_consulTodo">Consulta Todas</string>
     <string name="tit_lista">Lista de Animales Almacenados</string>
     <string name="btn_volver">Volver</string>
-    <string name="label_usuario">Usuario</string>
+    <string name="label_usuario">Correo electrónico</string>
     <string name="label_contrasena">Contraseña</string>
     <string name="image">KiriLogo</string>
+    <string name="registro">Registro nuevo usuario</string>
+    <string name="nuevo_registro">¿No tiene cuenta? REGÍSTRESE</string>
+    <string name="volver_inicio">Volver a Inicio de Sesión</string>
+
 
 
 </resources>

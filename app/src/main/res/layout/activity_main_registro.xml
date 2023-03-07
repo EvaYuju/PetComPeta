@@ -17,23 +17,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/kiri" />
 
+
     <TextView
         android:id="@+id/textViewTitulo"
         android:layout_width="332dp"
         android:layout_height="72dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="48dp"
         android:background="@drawable/bordes_stylo1"
         android:fontFamily="@font/atma_bold"
         android:gravity="center"
         android:padding="2dp"
-        android:text="@string/bienvenidos"
+        android:text="@string/registro"
         android:textColor="@color/rosa1000"
         android:textSize="27sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -41,7 +42,7 @@
         android:layout_width="303dp"
         android:layout_height="56dp"
         android:layout_margin="20dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="52dp"
         android:textColorHint="@color/rosa1000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,38 +89,29 @@
         android:id="@+id/loginButton"
         android:layout_width="211dp"
         android:layout_height="59dp"
-        android:layout_margin="20dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/bordes_stylo1"
         android:gravity="center"
-        android:text="@string/btn_login"
+        android:text="@string/btn_registro"
         android:textColor="@color/rosa1000"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switchRecuerdame" />
-
-    <Switch
-        android:id="@+id/switchRecuerdame"
-        android:layout_width="139dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="36dp"
-        android:text="@string/recuerdame"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.879"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        tools:ignore="TouchTargetSizeCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
     <Button
-        android:id="@+id/botonCambiaRegistro"
+        android:id="@+id/botonVuelveInicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nuevo_registro"
+        android:layout_marginTop="32dp"
+        android:text="@string/volver_inicio"
         android:textColor="@color/rosa1000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
+        app:layout_constraintVertical_bias="0.17" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
