@@ -144,7 +144,6 @@ class RegistroAnimalesActivity : AppCompatActivity() {
             // Código para consultar el registro
             val codigo = binding.ptCodigo.text.toString().trim()
             val dbHandler = DatabaseHelper(this, null)
-            val cursor = dbHandler.getName()
 
             db.child(codigo).addValueEventListener(object :ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
