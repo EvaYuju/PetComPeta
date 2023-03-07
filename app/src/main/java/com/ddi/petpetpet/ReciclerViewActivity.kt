@@ -3,6 +3,10 @@ package com.ddi.petpetpet
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+
+import androidx.core.view.isVisible
+import androidx.recyclerview.widget.DividerItemDecoration
+
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ddi.petpetpet.adapter.AnimalAdapter
 import com.ddi.petpetpet.databinding.ActivityReciclerViewBinding
@@ -21,6 +25,7 @@ class ReciclerViewActivity : AppCompatActivity() {
         binding = ActivityReciclerViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val usuario = intent.getStringExtra("Usuario")
+        binding.btnVolver.isVisible = usuario.equals("admin@gmail.com")
         binding.usuarioLogeado2.text = "Usuario: $usuario"
         initRecyclerView()
 
