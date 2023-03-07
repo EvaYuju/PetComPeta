@@ -3,73 +3,82 @@ package com.ddi.petpetpet
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import com.ddi.petpetpet.databinding.ActivityMainBinding
 import com.ddi.petpetpet.db.DatabaseHelper
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 
+
 class MainActivity : AppCompatActivity() {
+    companion object {
+        private const val ADMIN_USERNAME = "admin@gmail.com"
+        private const val ADMIN_PASSWORD = "admin1234"
+    }
+
     private lateinit var binding: ActivityMainBinding
-    private lateinit var dbHelper: DatabaseHelper
+    private lateinit var mAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Vincula la vista principal a este código
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Crear la base de datos
-        dbHelper = DatabaseHelper(this, null)
+        mAuth = FirebaseAuth.getInstance()
 
-        // Insertar el usuario admin si no existe
-        if (!dbHelper.checkUser(ADMIN_USERNAME, ADMIN_PASSWORD)) {
-            dbHelper.insertUsuario(usuario = ADMIN_USERNAME, contrasena = ADMIN_PASSWORD)
+        val editTextEmail = binding.usuario
+        val editTextPassword = binding.contrasena
+        val botonLogin = binding.loginButton
+        val botonRegistro = binding.botonCambiaRegistro
+
+        botonLogin.setOnClickListener {
+            val email = editTextEmail.text.toString()
+            val password = editTextPassword.text.toString()
+
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Por favor ingrese su correo y contraseña", Toast.LENGTH_SHORT).show()
+            } else {
+                mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            // El login fue exitoso, realiza la acción correspondiente
+                            Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
+
+                            if(email.equals("admin@gmail.com")) {
+                                // Genera el contenedor de datos que llamaremos intent
+                                val intent = Intent(this, RegistroAnimalesActivity::class.java)
+                                // Introduce en el contenedor el dato que pasamos a la otra actividad
+                                intent.putExtra("Usuario", email)
+                                // Llama a la otra actividad
+                                startActivity(intent)
+                            } else {
+                                // Genera el contenedor de datos que llamaremos intent
+                                val intent = Intent(this, ReciclerViewActivity::class.java)
+                                // Introduce en el contenedor el dato que pasamos a la otra actividad
+                                intent.putExtra("Usuario", email)
+                                // Llama a la otra actividad
+                                startActivity(intent)
+                            }
+
+                        } else {
+                            // El login falló, muestra un mensaje de error al usuario
+                            Toast.makeText(this, "Error al iniciar sesión, por favor verifique su correo y contraseña", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            }
         }
 
-        // comportamiento del botón "Login"
-        binding.loginButton.setOnClickListener {
-            // Ocultar teclado
-            binding.usuario.showSoftInputOnFocus = false
-            binding.contrasena.showSoftInputOnFocus = false
+        botonRegistro.setOnClickListener {
+            val intent = Intent(this, MainActivityRegistro::class.java )
 
-            // Recoge el nombre tecleado en el editText
-            val usuario = binding.usuario.text.toString()
-            val contrasena = binding.contrasena.text.toString()
-
-            // Verificar si el usuario y contraseña son válidos
-            if (dbHelper.checkUser(usuario, contrasena)) {
-                // El usuario y la contraseña son correctos
-                Snackbar.make(binding.root, "Bienvenido, $usuario", Snackbar.LENGTH_SHORT).show()
-
-                // Genera el contenedor de datos que llamaremos intent
-                val intent = Intent(this, RegistroAnimalesActivity::class.java )
-                // Introduce en el contenedor el dato que pasamos a la otra actividad
-                intent.putExtra("Usuario",usuario)
-                // Llama a la otra actividad
-                startActivity(intent)
-                // Finaliza la actividad actual
-                finish()
-
-            } else {
-                // El usuario y/o la contraseña son incorrectos
-                Snackbar.make(binding.root, "Usuario o contraseña incorrectos", Snackbar.LENGTH_SHORT).show()
-            }
-
-        }//btnLogin
+            // Llama a la otra actividad
+            startActivity(intent)
+        }
 
 
 
     }//onCreate
-    override fun onDestroy() {
-        super.onDestroy()
-        // Cerrar la conexión a la base de datos al salir de la aplicación
-        dbHelper.close()
-    }
-
-    companion object {
-        private const val ADMIN_USERNAME = "admin"
-        private const val ADMIN_PASSWORD = "admin"
-    }
-
-
 }//main
