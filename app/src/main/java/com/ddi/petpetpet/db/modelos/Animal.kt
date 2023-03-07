@@ -10,5 +10,8 @@ data class Animal(
         val dni: String,
         val imagen: String
     )
+{
+        constructor():this("","","","","","","")
+}
 
 

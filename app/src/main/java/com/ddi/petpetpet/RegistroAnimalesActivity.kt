@@ -8,8 +8,7 @@ import com.ddi.petpetpet.databinding.ActivityRegistroAnimalBinding
 import com.ddi.petpetpet.db.DatabaseHelper
 import com.ddi.petpetpet.db.modelos.Animal
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
 class RegistroAnimalesActivity : AppCompatActivity() {
 
@@ -47,7 +46,7 @@ class RegistroAnimalesActivity : AppCompatActivity() {
 
                 // Verificar si todos los campos están llenos
             if (codigo.isNotEmpty() && nombre.isNotEmpty() && raza.isNotEmpty() && sexo.isNotEmpty() && fecnac.isNotEmpty() && dni.isNotEmpty()) {
-                // Verificar si el código ya existe en la base de datos
+                //todo Crear metodo de comprobacion de id
                 //val dbHandler = DatabaseHelper(this, null)
                 //val animal = dbHandler.getAnimal(codigo)
 
@@ -103,6 +102,7 @@ class RegistroAnimalesActivity : AppCompatActivity() {
             val fecnac = binding.ptFecNac.text.toString()
             val dniPropietario = binding.ptDNI.text.toString()
 
+            /*
             val dbHandler = DatabaseHelper(this, null)
             val animal = dbHandler.getAnimal(codigo)
 
@@ -120,6 +120,8 @@ class RegistroAnimalesActivity : AppCompatActivity() {
                     Snackbar.LENGTH_SHORT
                 ).show()
             }
+
+             */
             limpiar()
         }
 
@@ -143,7 +145,35 @@ class RegistroAnimalesActivity : AppCompatActivity() {
             val dbHandler = DatabaseHelper(this, null)
             val cursor = dbHandler.getName()
 
-            if (cursor != null && cursor.moveToFirst()) {
+            db.child(codigo).addValueEventListener(object :ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
+                        val animal = snapshot.getValue(Animal::class.java)
+                        val nombre = animal?.nombre
+                        val raza = animal?.raza
+                        val fecNac = animal?.fecnac
+                        val sexo = animal?.sexo
+                        val dni = animal?.dni
+
+                        binding.ptDNI.setText(dni)
+                        binding.ptNombre.setText(nombre)
+                        binding.ptRaza.setText(raza)
+                        binding.ptFecNac.setText(fecNac)
+                        binding.ptSexo.setText(sexo)
+
+                        Snackbar.make(binding.root, "Datos cargados", Snackbar.LENGTH_SHORT).show()
+                    } else {
+                        // Si no se encuentra un animal con el código introducido, mostrar un mensaje de error.
+                        Snackbar.make(binding.root, "No se encontraron resultados", Snackbar.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                }
+
+            })
+
+            /*if (cursor != null && cursor.moveToFirst()) {
                 do {
                     val dbCodigo = cursor.getString(cursor.getColumnIndexOrThrow("codigo"))
                     if (dbCodigo == codigo) {
@@ -167,12 +197,10 @@ class RegistroAnimalesActivity : AppCompatActivity() {
 
             } else {
 
-                Snackbar.make(binding.root, "No se encontraron resultados", Snackbar.LENGTH_SHORT)
-                    .show()
-            }
+                Snackbar.make(binding.root, "No se encontraron resultados", Snackbar.LENGTH_SHORT).show()
+            }*/
 
         }
-        // Botón leer
         // Botón consulta todos
         binding.btnConsulTodo.setOnClickListener {
             val intent = Intent(this, ReciclerViewActivity::class.java)
