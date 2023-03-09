@@ -3,14 +3,9 @@ package com.ddi.petpetpet
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import com.ddi.petpetpet.databinding.ActivityMainBinding
-import com.ddi.petpetpet.db.DatabaseHelper
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //mAuth = FirebaseAuth.getInstance()
+        mAuth = FirebaseAuth.getInstance()
 
         val editTextEmail = binding.usuario
         val editTextPassword = binding.contrasena
