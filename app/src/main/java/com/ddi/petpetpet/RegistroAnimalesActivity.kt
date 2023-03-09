@@ -201,17 +201,21 @@ class RegistroAnimalesActivity : AppCompatActivity() {
     }
     private fun randomImage(): String {
         val list = mutableListOf(
-            "ayud",
-            "betho",
-            "botas",
-            "felix",
-            "garfield",
-            "isidoro",
-            "milu",
-            "pepa",
-            "pluto",
-            "scooby",
-            "snoopy"
+            "https://s1.eestatic.com/2020/08/26/curiosidades/mascotas/mascotas-perros-gatos_515959375_158488465_1706x960.jpg",
+            "https://t2.ea.ltmcdn.com/es/posts/2/7/6/_24672_1_600.jpg",
+            "https://i.pinimg.com/originals/ac/70/fb/ac70fbacaf1bbaa60f57654868995679.jpg",
+            "https://supercurioso.com/wp-content/uploads/2014/07/el-perro-mas-feo-del-mundo-696x385.jpg",
+            "https://res.cloudinary.com/postedin/image/upload/d_mascotas:no-image.jpg,w_340,c_thumb,f_auto,q_80/mascotas/e392d5a.jpg",
+            "https://i.blogs.es/a4d31e/sims-4-bug/840_560.jpeg",
+            "https://i.ebayimg.com/images/g/A0MAAMXQTghRLmEp/s-l500.jpg",
+            "https://elcomercio.pe/resizer/0pMUlR_T98x1Vx8HdhcRFqr95TE=/1200x800/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/ETBB5OFWBZCWTHTXCLMPNCMI5Q.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw1ayZVQR1eAlj8AczE75wVsMGD9wVX_hdjQ&usqp=CAU",
+            "https://images7.memedroid.com/images/UPLOADED803/5e7fa33f785ee.jpeg",
+            "https://images.ecestaticos.com/J5pFdl2mm0ef9Y19ON0gtdw8E-c=/0x91:747x651/1200x899/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F003%2F218%2F4ff%2F0032184ffd5d997c8994e4823ea4b21b.jpg",
+            "https://i.pinimg.com/564x/73/ed/3e/73ed3e93762cb6e17874dbfcb9971598.jpg",
+            "https://i.pinimg.com/originals/dd/d2/bb/ddd2bb3f0fb29f6daf9bc391ed564f17.jpg",
+            "https://www.pintzap.com/storage/img/memegenerator/templates/perro-depresivo.webp",
+            "https://static.wikia.nocookie.net/memes-pedia/images/3/3d/Nelson_the_Bull_Terrier.jpg/revision/latest?cb=20221019210527&path-prefix=es"
         )
         return list.random()
     }
