@@ -65,20 +65,6 @@ class RegistroAnimalesActivity : AppCompatActivity() {
                     ).show()
                 }
 
-                /*if (animal == null) {
-                    // Insertar el nuevo animal en la base de datos
-                    dbHandler.insertAnimal(codigo, nombre, raza, sexo, fecnac, dniPropietario)
-
-                    // Aquí es donde se llama a Snackbar en lugar de Toast
-
-                } else {
-                    // Aquí es donde se llama a Snackbar en lugar de Toast
-                    Snackbar.make(
-                        binding.root,
-                        "El código ya existe en la base de datos",
-                        Snackbar.LENGTH_SHORT
-                    ).show()*/
-
                 limpiar()
                 }
             else {
@@ -139,30 +125,6 @@ class RegistroAnimalesActivity : AppCompatActivity() {
             }
 
 
-
-
-
-
-            /*
-            val dbHandler = DatabaseHelper(this, null)
-            val animal = dbHandler.getAnimal(codigo)
-
-            if (animal != null) {
-                // Actualizamos los datos del animal con los nuevos valores
-                dbHandler.updateAnimal(codigo, nombre, raza, sexo, fecnac, dniPropietario)
-
-                // Mostramos un mensaje al usuario
-                Snackbar.make(binding.root, "Datos actualizados", Snackbar.LENGTH_SHORT).show()
-            } else {
-                // Si no se encuentra el animal en la base de datos, mostramos un mensaje de error
-                Snackbar.make(
-                    binding.root,
-                    "No se ha encontrado el animal con código $codigo",
-                    Snackbar.LENGTH_SHORT
-                ).show()
-            }
-
-             */
             limpiar()
         }
 
@@ -189,7 +151,6 @@ class RegistroAnimalesActivity : AppCompatActivity() {
         binding.btnConsul.setOnClickListener {
             // Código para consultar el registro
             val codigo = binding.ptCodigo.text.toString().trim()
-            val dbHandler = DatabaseHelper(this, null)
 
             db.child(codigo).addValueEventListener(object :ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -218,35 +179,8 @@ class RegistroAnimalesActivity : AppCompatActivity() {
                 }
 
             })
-
-            /*if (cursor != null && cursor.moveToFirst()) {
-                do {
-                    val dbCodigo = cursor.getString(cursor.getColumnIndexOrThrow("codigo"))
-                    if (dbCodigo == codigo) {
-                        val nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre"))
-                        val raza = cursor.getString(cursor.getColumnIndexOrThrow("raza"))
-                        val sexo = cursor.getString(cursor.getColumnIndexOrThrow("sexo"))
-                        val fecnac = cursor.getString(cursor.getColumnIndexOrThrow("fecnac"))
-                        val dni = cursor.getString(cursor.getColumnIndexOrThrow("dni"))
-                        binding.ptNombre.setText(nombre)
-                        binding.ptRaza.setText(raza)
-                        binding.ptSexo.setText(sexo)
-                        binding.ptFecNac.setText(fecnac)
-                        binding.ptDNI.setText(dni)
-                        Snackbar.make(binding.root, "Datos cargados", Snackbar.LENGTH_SHORT).show()
-                        break
-                    }
-                } while (cursor.moveToNext())
-
-                cursor.close()
-                dbHandler.close()
-
-            } else {
-
-                Snackbar.make(binding.root, "No se encontraron resultados", Snackbar.LENGTH_SHORT).show()
-            }*/
-
         }
+
         // Botón consulta todos
         binding.btnConsulTodo.setOnClickListener {
             val intent = Intent(this, ReciclerViewActivity::class.java)

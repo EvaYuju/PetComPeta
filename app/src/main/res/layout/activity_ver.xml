@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rosa200"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".VerActivity">
+
+    <TextView
+        android:id="@+id/textViewTituloRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bordes_stylo1"
+        android:fontFamily="@font/atma_bold"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="@string/tit_registro"
+        android:textColor="@color/rosa1000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="191dp"
+        android:layout_height="199dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="20sp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginBottom="17dp"
+        android:contentDescription="@string/image" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30sp">
+
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:text="@string/tit_nombre"
+            android:textColor="@color/rosa1000"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/ptNombre"
+            android:layout_width="219dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="60dp"
+            android:background="@drawable/caja_texto_stylo1"
+            android:ems="10"
+            android:hint="@string/txt_nombre"
+            android:inputType="text"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:textSize="14sp"
+            tools:ignore="Autofill,TouchTargetSizeCheck" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp">
+
+        <TextView
+            android:id="@+id/tvCodigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:text="@string/tit_cod"
+            android:textColor="@color/rosa1000"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/codigo"
+            android:layout_width="189dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="46dp"
+            android:background="@drawable/caja_texto_stylo1"
+            android:ems="10"
+            android:hint="@string/txt_cod"
+            android:inputType="text"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:textSize="14sp"
+            tools:ignore="Autofill,TouchTargetSizeCheck" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp">
+
+        <TextView
+            android:id="@+id/tvRaza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:text="@string/tit_raza"
+            android:textColor="@color/rosa1000"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/ptRaza"
+            android:layout_width="130dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="80dp"
+            android:background="@drawable/caja_texto_stylo1"
+            android:ems="10"
+            android:hint="@string/txt_raza"
+            android:inputType="text"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:textSize="14sp"
+            tools:ignore="Autofill,TouchTargetSizeCheck" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp">
+
+        <TextView
+            android:id="@+id/tvFecNac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:text="@string/tit_fec"
+            android:textColor="@color/rosa1000"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/ptFecNac"
+            android:layout_width="92dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="42dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/caja_texto_stylo1"
+            android:ems="10"
+            android:hint="@string/txt_fec"
+            android:inputType="text"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:textSize="14sp"
+            tools:ignore="Autofill,TouchTargetSizeCheck" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp">
+
+        <TextView
+            android:id="@+id/tvDNI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:text="@string/tit_dni"
+            android:textColor="@color/rosa1000"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/ptDNI"
+            android:layout_width="129dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="88dp"
+            android:background="@drawable/caja_texto_stylo1"
+            android:ems="10"
+            android:hint="@string/txt_dni"
+            android:inputType="text"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:textSize="14sp"
+            tools:ignore="Autofill,TouchTargetSizeCheck" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp">
+
+        <TextView
+            android:id="@+id/tvSexo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:text="@string/tit_sexo"
+            android:textColor="@color/rosa1000"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/ptSexo"
+            android:layout_width="82dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="80dp"
+            android:background="@drawable/caja_texto_stylo1"
+            android:ems="10"
+            android:hint="@string/txt_sexo"
+            android:inputType="text"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:textSize="14sp"
+            tools:ignore="Autofill,TouchTargetSizeCheck" />
+    </TableRow>
+
+    <Button
+        android:id="@+id/botonVolverRecycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/btn_volver" />
+
+</LinearLayout>

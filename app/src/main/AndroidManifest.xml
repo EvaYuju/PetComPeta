@@ -18,6 +18,13 @@
         android:theme="@style/Theme.PetPetPet"
         tools:targetApi="31">
         <activity
+            android:name=".VerActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainActivityRegistro"
             android:exported="false" />
         <activity
