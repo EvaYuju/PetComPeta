@@ -101,7 +101,47 @@ class RegistroAnimalesActivity : AppCompatActivity() {
             val raza = binding.ptRaza.text.toString()
             val sexo = binding.ptSexo.text.toString()
             val fecnac = binding.ptFecNac.text.toString()
-            val dniPropietario = binding.ptDNI.text.toString()
+            val dni = binding.ptDNI.text.toString()
+            var imagen = "";
+
+            if(codigo == null || codigo == ""){
+                Snackbar.make(binding.root, "No se encontró el registro", Snackbar.LENGTH_SHORT).show()
+            } else if (codigo.isEmpty() || nombre.isEmpty() || raza.isEmpty()|| sexo.isEmpty() || fecnac.isEmpty() || dni.isEmpty()) {
+                Snackbar.make(binding.root, "Debe rellenar todos los campos", Snackbar.LENGTH_SHORT).show()
+
+            }else {
+                db.child(codigo).addValueEventListener(object :ValueEventListener{
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.exists()) {
+                            val animal = snapshot.getValue(Animal::class.java)
+                            if (animal != null) {
+                                imagen = animal.imagen
+                            }
+                        } else {
+                            // Si no se encuentra un animal con el código introducido, mostrar un mensaje de error.
+                            Snackbar.make(binding.root, "No se encontraron resultados", Snackbar.LENGTH_SHORT).show()
+                        }
+                    }
+                     override fun onCancelled(error: DatabaseError) {
+                    }
+
+                })
+
+                val ani = Animal(codigo,nombre,raza,fecnac,sexo,dni,imagen)
+
+                db.child(codigo).setValue(ani).addOnSuccessListener {
+                    Snackbar.make(binding.root, "Registro modificado", Snackbar.LENGTH_SHORT).show()
+                }.addOnFailureListener() {
+                    Snackbar.make(binding.root, "No se encontró el registro", Snackbar.LENGTH_SHORT)
+                        .show()
+                }
+                limpiar()
+            }
+
+
+
+
+
 
             /*
             val dbHandler = DatabaseHelper(this, null)
@@ -130,10 +170,16 @@ class RegistroAnimalesActivity : AppCompatActivity() {
         // Botón borrar
         binding.btnBorrar.setOnClickListener {
             val codigo = binding.ptCodigo.text.toString().trim()
-            db.child(codigo).removeValue().addOnSuccessListener {
-                Snackbar.make(binding.root, "Registro borrado", Snackbar.LENGTH_SHORT).show()
-            }.addOnFailureListener() {
+            if(codigo == null || codigo == ""){
                 Snackbar.make(binding.root, "No se encontró el registro", Snackbar.LENGTH_SHORT).show()
+            } else {
+
+                db.child(codigo).removeValue().addOnSuccessListener {
+                    Snackbar.make(binding.root, "Registro borrado", Snackbar.LENGTH_SHORT).show()
+                }.addOnFailureListener() {
+                    Snackbar.make(binding.root, "No se encontró el registro", Snackbar.LENGTH_SHORT)
+                        .show()
+                }
             }
             limpiar()
         }
