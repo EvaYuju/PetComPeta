@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        mAuth = FirebaseAuth.getInstance()
+        //mAuth = FirebaseAuth.getInstance()
 
         val editTextEmail = binding.usuario
         val editTextPassword = binding.contrasena

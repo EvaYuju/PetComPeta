@@ -3,6 +3,7 @@ package com.ddi.petpetpet
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bumptech.glide.Glide
 import com.ddi.petpetpet.databinding.ActivityRegistroAnimalBinding
 import com.ddi.petpetpet.databinding.ActivityVerBinding
 import com.ddi.petpetpet.db.DatabaseHelper
@@ -36,12 +37,17 @@ class VerActivity : AppCompatActivity() {
                         val fecNac = animal?.fecnac
                         val sexo = animal?.sexo
                         val dni = animal?.dni
+                        //
+                        val imagen = animal?.imagen
+
                         binding.codigo.setText(codigo)
                         binding.ptDNI.setText(dni)
                         binding.ptNombre.setText(nombre)
                         binding.ptRaza.setText(raza)
                         binding.ptFecNac.setText(fecNac)
                         binding.ptSexo.setText(sexo)
+                        //
+                        Glide.with(binding.imageView2.context).load(imagen).into(binding.imageView2)
 
                         Snackbar.make(binding.root, "Datos cargados", Snackbar.LENGTH_SHORT).show()
                     } else {

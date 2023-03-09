@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.bumptech.glide.Glide
 import com.ddi.petpetpet.MainActivity
 import com.ddi.petpetpet.VerActivity
 import com.ddi.petpetpet.databinding.ItemAnimalBinding
@@ -23,9 +24,11 @@ class AnimalViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         }
     }
     fun render(animalModel: Animal) {
-        binding.ivfoto.setImageResource(binding.root.context.resources.getIdentifier(animalModel.imagen,"drawable",binding.root.context.packageName))
+        //binding.ivfoto.setImageResource(binding.root.context.resources.getIdentifier(animalModel.imagen,"drawable",binding.root.context.packageName))
         binding.tvNombre.text = animalModel.nombre
         binding.tvCodigo.text = animalModel.codigo
         binding.tvUsuario.text = animalModel.usuario
+        // Para coger la imagen de internet
+        Glide.with(binding.ivfoto.context).load(animalModel.imagen).into(binding.ivfoto)
     }
 }
