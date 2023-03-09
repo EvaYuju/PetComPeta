@@ -91,7 +91,7 @@ class DatabaseHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
             val dniPropietario = cursor.getString(cursor.getColumnIndex(COLUMN_DNI))
             val imagen = cursor.getString(cursor.getColumnIndex(COLUMN_IMG))
 
-            animal = Animal(codigo, nombre, raza, sexo, fecnac, dniPropietario, imagen)
+            animal = Animal(codigo, nombre, raza, sexo, fecnac, dniPropietario, imagen,"")
         }
 
         cursor.close()

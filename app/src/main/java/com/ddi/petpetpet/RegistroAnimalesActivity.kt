@@ -52,7 +52,7 @@ class RegistroAnimalesActivity : AppCompatActivity() {
 
 
 
-                val ani = Animal(codigo,nombre,raza,fecnac,sexo,dni,imagen)
+                val ani = Animal(codigo,nombre,raza,fecnac,sexo,dni,imagen,usuario.toString())
 
                 db.child(codigo).setValue(ani).addOnSuccessListener {
                     limpiar()
@@ -113,7 +113,7 @@ class RegistroAnimalesActivity : AppCompatActivity() {
 
                 })
 
-                val ani = Animal(codigo,nombre,raza,fecnac,sexo,dni,imagen)
+                val ani = Animal(codigo,nombre,raza,fecnac,sexo,dni,imagen,usuario.toString())
 
                 db.child(codigo).setValue(ani).addOnSuccessListener {
                     Snackbar.make(binding.root, "Registro modificado", Snackbar.LENGTH_SHORT).show()

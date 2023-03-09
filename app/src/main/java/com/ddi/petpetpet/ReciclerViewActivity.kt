@@ -58,7 +58,7 @@ class ReciclerViewActivity : AppCompatActivity() {
                     }
                 }
                 // Se le indica qué clase Adapter se encarga de proveer los datos al RecyclerView
-                binding.recyclerAnimal.adapter = AnimalAdapter(listaAnimales)
+                binding.recyclerAnimal.adapter = AnimalAdapter(listaAnimales, binding.usuarioLogeado2.text.replace(Regex("Usuario: "),""))
             }
 
             override fun onCancelled(error: DatabaseError) {

@@ -14,7 +14,7 @@ import com.google.firebase.database.*
 class VerActivity : AppCompatActivity() {
     private lateinit var binding: ActivityVerBinding
     private lateinit var db : DatabaseReference
-
+    private lateinit var usuario : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Vincula a la vista secundaria este código
@@ -22,6 +22,7 @@ class VerActivity : AppCompatActivity() {
         setContentView(binding.root)
         db = FirebaseDatabase.getInstance().getReference("Animal")
 
+        usuario = intent.getStringExtra("usuario").toString()
         val codigo = intent.getStringExtra("codigo")
 
 
@@ -35,7 +36,6 @@ class VerActivity : AppCompatActivity() {
                         val fecNac = animal?.fecnac
                         val sexo = animal?.sexo
                         val dni = animal?.dni
-
                         binding.codigo.setText(codigo)
                         binding.ptDNI.setText(dni)
                         binding.ptNombre.setText(nombre)
@@ -62,6 +62,8 @@ class VerActivity : AppCompatActivity() {
         binding.botonVolverRecycler.setOnClickListener {
             // Genera el contenedor de datos que llamaremos intent
             val intent = Intent(this, ReciclerViewActivity::class.java )
+            println(usuario)
+            intent.putExtra("Usuario", usuario)
             // Llama a la otra actividad
             startActivity(intent)
         }
