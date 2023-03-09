@@ -17,8 +17,9 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val ADMIN_USERNAME = "admin@gmail.com"
         private const val ADMIN_PASSWORD = "admin1234"
-    }
 
+    }
+    lateinit var usuarioActual : String
     private lateinit var binding: ActivityMainBinding
     private lateinit var mAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         val editTextPassword = binding.contrasena
         val botonLogin = binding.loginButton
         val botonRegistro = binding.botonCambiaRegistro
-
+        usuarioActual = binding.usuario.toString();
         botonLogin.setOnClickListener {
             val email = editTextEmail.text.toString()
             val password = editTextPassword.text.toString()
@@ -52,6 +53,7 @@ class MainActivity : AppCompatActivity() {
                                 val intent = Intent(this, RegistroAnimalesActivity::class.java)
                                 // Introduce en el contenedor el dato que pasamos a la otra actividad
                                 intent.putExtra("Usuario", email)
+                                usuarioActual = email;
                                 // Llama a la otra actividad
                                 startActivity(intent)
                             } else {
@@ -60,6 +62,7 @@ class MainActivity : AppCompatActivity() {
                                 // Introduce en el contenedor el dato que pasamos a la otra actividad
                                 intent.putExtra("Usuario", email)
                                 // Llama a la otra actividad
+                                usuarioActual = email;
                                 startActivity(intent)
                             }
 

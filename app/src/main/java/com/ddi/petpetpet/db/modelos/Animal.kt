@@ -8,10 +8,11 @@ data class Animal(
         val fecnac: String,
         val sexo: String,
         val dni: String,
-        val imagen: String
+        val imagen: String,
+        var usuario: String
     )
 {
-        constructor():this("","","","","","","")
+        constructor():this("","","","","","","","")
 }
 
 
