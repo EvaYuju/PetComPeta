@@ -97,6 +97,17 @@ class RegistroAnimalesActivity : AppCompatActivity() {
                             val animal = snapshot.getValue(Animal::class.java)
                             if (animal != null) {
                                 imagen = animal.imagen
+                                System.out.println(imagen);
+                                val ani = Animal(codigo,nombre,raza,fecnac,sexo,dni,imagen,usuario.toString())
+
+                                db.child(codigo).setValue(ani).addOnSuccessListener {
+                                    Snackbar.make(binding.root, "Registro modificado", Snackbar.LENGTH_SHORT).show()
+                                    limpiar()
+                                }.addOnFailureListener() {
+                                    Snackbar.make(binding.root, "No se encontró el registro", Snackbar.LENGTH_SHORT)
+                                        .show()
+                                }
+                                limpiar()
                             }
                         } else {
                             // Si no se encuentra un animal con el código introducido, mostrar un mensaje de error.
@@ -108,15 +119,7 @@ class RegistroAnimalesActivity : AppCompatActivity() {
 
                 })
 
-                val ani = Animal(codigo,nombre,raza,fecnac,sexo,dni,imagen,usuario.toString())
 
-                db.child(codigo).setValue(ani).addOnSuccessListener {
-                    Snackbar.make(binding.root, "Registro modificado", Snackbar.LENGTH_SHORT).show()
-                }.addOnFailureListener() {
-                    Snackbar.make(binding.root, "No se encontró el registro", Snackbar.LENGTH_SHORT)
-                        .show()
-                }
-                limpiar()
             }
 
 
