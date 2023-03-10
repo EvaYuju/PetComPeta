@@ -12,6 +12,8 @@
         android:layout_width="110dp"
         android:layout_height="165dp"
         android:layout_marginTop="52dp"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewTitulo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -43,7 +45,9 @@
         android:layout_height="56dp"
         android:layout_margin="20dp"
         android:layout_marginTop="52dp"
+        android:layout_marginBottom="21dp"
         android:textColorHint="@color/rosa1000"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitulo">
@@ -64,7 +68,9 @@
         android:layout_width="303dp"
         android:layout_height="56dp"
         android:layout_margin="20dp"
+        android:layout_marginBottom="49dp"
         android:textColorHint="@color/rosa1000"
+        app:layout_constraintBottom_toTopOf="@+id/loginButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
@@ -93,6 +99,7 @@
         android:background="@drawable/bordes_stylo1"
         android:gravity="center"
         android:text="@string/btn_registro"
+        android:fontFamily="@font/atma_bold"
         android:textColor="@color/rosa1000"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -106,12 +113,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/volver_inicio"
+        android:fontFamily="@font/atma_bold"
         android:textColor="@color/rosa1000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginButton"
-        app:layout_constraintVertical_bias="0.17" />
+        app:layout_constraintVertical_bias="0.187" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

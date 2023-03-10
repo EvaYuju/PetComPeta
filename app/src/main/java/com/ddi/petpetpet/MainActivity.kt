@@ -1,15 +1,17 @@
 package com.ddi.petpetpet
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.ddi.petpetpet.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 
 
 class MainActivity : AppCompatActivity() {
     companion object {
+        // Datos para iniciar sesión como administrador:
         private const val ADMIN_USERNAME = "admin@gmail.com"
         private const val ADMIN_PASSWORD = "admin1234"
 
@@ -36,6 +38,14 @@ class MainActivity : AppCompatActivity() {
 
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Por favor ingrese su correo y contraseña", Toast.LENGTH_SHORT).show()
+                val toast = Toast.makeText(
+                    this,
+                    "Por favor ingrese su correo y contraseña",
+                    Toast.LENGTH_SHORT
+                )
+                toast.setGravity(Gravity.CENTER, 0, 0) // Centra el Toast en la pantalla
+                toast.setMargin(0f, 0.1f) // Aumenta el tamaño vertical del Toast
+                toast.show()
             } else {
                 mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->

@@ -37,7 +37,6 @@ class VerActivity : AppCompatActivity() {
                         val fecNac = animal?.fecnac
                         val sexo = animal?.sexo
                         val dni = animal?.dni
-                        //
                         val imagen = animal?.imagen
 
                         binding.codigo.setText(codigo)
@@ -46,7 +45,7 @@ class VerActivity : AppCompatActivity() {
                         binding.ptRaza.setText(raza)
                         binding.ptFecNac.setText(fecNac)
                         binding.ptSexo.setText(sexo)
-                        //
+                        // Usando libreria Glide para cargar imágenes
                         Glide.with(binding.imageView2.context).load(imagen).into(binding.imageView2)
 
                         Snackbar.make(binding.root, "Datos cargados", Snackbar.LENGTH_SHORT).show()

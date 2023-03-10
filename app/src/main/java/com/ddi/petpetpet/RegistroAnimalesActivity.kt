@@ -46,11 +46,6 @@ class RegistroAnimalesActivity : AppCompatActivity() {
 
                 // Verificar si todos los campos están llenos
             if (codigo.isNotEmpty() && nombre.isNotEmpty() && raza.isNotEmpty() && sexo.isNotEmpty() && fecnac.isNotEmpty() && dni.isNotEmpty()) {
-                //todo Crear metodo de comprobacion de id
-                //val dbHandler = DatabaseHelper(this, null)
-                //val animal = dbHandler.getAnimal(codigo)
-
-
 
                 val ani = Animal(codigo,nombre,raza,fecnac,sexo,dni,imagen,usuario.toString())
 
@@ -68,7 +63,7 @@ class RegistroAnimalesActivity : AppCompatActivity() {
                 limpiar()
                 }
             else {
-                // Aquí es donde se llama a Snackbar en lugar de Toast
+                // notificación
                 Snackbar.make(
                     binding.root,
                     "Todos los campos son obligatorios",
@@ -191,6 +186,7 @@ class RegistroAnimalesActivity : AppCompatActivity() {
 
         }
     }
+    // método general para limpiar los campos
     private fun limpiar() {
         binding.ptCodigo.setText("")
         binding.ptNombre.setText("")
@@ -199,6 +195,7 @@ class RegistroAnimalesActivity : AppCompatActivity() {
         binding.ptFecNac.setText("")
         binding.ptDNI.setText("")
     }
+    // Método con lista de url de imágenes de forma random
     private fun randomImage(): String {
         val list = mutableListOf(
             "https://s1.eestatic.com/2020/08/26/curiosidades/mascotas/mascotas-perros-gatos_515959375_158488465_1706x960.jpg",
